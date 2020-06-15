@@ -17,8 +17,10 @@
 
     <form action= "${pageContext.request.contextPath}/pass/list"  >
         人员证件号 <input type="text" name="pno" ></input>
-<%--        姓名 <input type="text" name="pname" ></input>--%>
         <input type="submit">
+<%--        姓名 <input type="text" name="pname" ></input>--%>
+        <br>
+
         <div style="float: left">
         <table border="1" cellspacing="0" width="800px" height="00px" align="left">
             <thead style="width: 600px">
