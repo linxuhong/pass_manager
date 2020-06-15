@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shangguan.spring.mapper.PersonMapper">
+  <resultMap id="BaseResultMap" type="com.shangguan.spring.beans.Person">
+
+    <id column="pid" jdbcType="INTEGER" property="pid" />
+    <result column="pname" jdbcType="VARCHAR" property="pname" />
+    <result column="ptel"  property="ptel" />
+    <result column="pno"  property="pno" />
+    <result column="paddress"  property="paddress" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    pid, pname, ptel , pno , paddress
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from person
+    where pid = #{pid}
+  </select>
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from person
+    where pid = #{pid}
+  </delete>
+
+
+  <insert id="insert" keyColumn="pid" keyProperty="pid" parameterType="com.shangguan.spring.beans.Code" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into person
+     (pname, pno, paddress , ptel)
+    values
+     (#{pname} , #{pno} ,   #{pno}, #{ptel})
+  </insert>
+
+  <insert id="insertSelective" keyColumn="pid" keyProperty="pid" parameterType="com.shangguan.spring.beans.Code" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into person
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="pname != null">
+        pname,
+      </if>
+      <if test="ctype != null">
+        ctype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="pname != null">
+        #{pname,jdbcType=VARCHAR},
+      </if>
+      <if test="ctype != null">
+        #{ctype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.shangguan.spring.beans.Code">
+
+    update person
+    <set>
+      <if test="pname != null">
+        pname = #{pname},
+      </if>
+
+      <if test="pno != null">
+        pno = #{pno},
+      </if>
+
+      <if test="paddress != null">
+        paddress = #{paddress},
+      </if>
+
+      <if test="ptel != null">
+        ptel = #{ptel}
+      </if>
+
+
+    </set>
+    where pid = #{pid}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.shangguan.spring.beans.Code">
+
+    update person
+    set pname = #{pname},
+       pno = #{pno},
+       ptel = #{ptel},
+        paddress = #{paddress}
+    where pid = #{pid}
+  </update>
+  <select id="selectAllCode" resultMap="BaseResultMap">
+    select * from person
+  </select>
+</mapper>
