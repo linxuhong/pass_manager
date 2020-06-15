@@ -94,11 +94,17 @@
      select * from passinfo
   </select>
 
-  <select id="selectPassBykey" resultType="java.util.HashMap"  >
+  <select id="selectPassBykey" resultType="java.util.HashMap"  parameterType="java.util.HashMap" >
     select a.id as id, a.createtime ,a.type
            , b.pno, b.pname    , b.ptel
            , c.cname ,c.cno
     from  passinfo a , person b , house c
     where a.pno = b.pid and a.cno = c.cid
+    <if test="pname != null">
+      and  b.pname like CONCAT('%','${pname}','%' )
+    </if>
+    <if test="pno != null">
+       and  b.pno = #{pno}
+    </if>
   </select>
 </mapper>

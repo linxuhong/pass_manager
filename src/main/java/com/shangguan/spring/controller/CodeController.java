@@ -23,6 +23,11 @@ public class CodeController {
     @Autowired
     CodeService codeService;
 
+    /**
+     * 查询
+     * @param model
+     * @return
+     */
     @GetMapping("/list")
     public String list(Model model) {
         List<Code> list = codeService.selectAllCode();

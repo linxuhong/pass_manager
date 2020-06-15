@@ -6,8 +6,10 @@ public class Person implements java.io.Serializable {
     }
 
     private Integer pid;
+    //人员姓名
     private String pname;
-    private String pno;     // 身份证
+    // 身份证
+    private String pno;
 
     private String paddress;   // 原籍地址
     private String ptel;

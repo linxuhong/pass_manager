@@ -1,8 +1,9 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
+<%@ page contentType="text/html;charset=gbk" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>å‡ºå…¥è¯ç®¡ç† </title>
+    <title>³öÈëÖ¤¹ÜÀí </title>
     <style>
     <jsp:include page="css.jsp"></jsp:include>
     </style>
@@ -15,23 +16,23 @@
     <br>
 
     <form action= "${pageContext.request.contextPath}/pass/list"  >
-        è¯ä»¶å· <input type="text" name="pno" ></input>
-        å§“å <input type="text" name="pno" ></input>
+        ÈËÔ±Ö¤¼þºÅ <input type="text" name="pno" ></input>
+<%--        ÐÕÃû <input type="text" name="pname" ></input>--%>
         <input type="submit">
         <div style="float: left">
         <table border="1" cellspacing="0" width="800px" height="00px" align="left">
             <thead style="width: 600px">
                 <tr>
-                    <th nowrap>ç¼–å·</th>
+                    <th nowrap>±àºÅ</th>
 
-                    <th nowrap>äººå‘˜è¯ä»¶å·</th>
-                    <th nowrap>äººå‘˜å§“å</th>
-                    <th nowrap>è”ç³»ç”µè¯</th>
+                    <th nowrap>ÈËÔ±Ö¤¼þºÅ</th>
+                    <th nowrap>ÈËÔ±ÐÕÃû</th>
+                    <th nowrap>ÁªÏµµç»°</th>
 
-                    <th nowrap>æˆ¿å±‹ä¿¡æ¯</th>
-                    <th nowrap>äººå‘˜ç±»åž‹</th>
-                    <th nowrap>åŠžè¯æ—¥æœŸ</th>
-                    <th nowrap>æ“ä½œ</th>
+                    <th nowrap>·¿ÎÝÐÅÏ¢</th>
+                    <th nowrap>ÈËÔ±ÀàÐÍ</th>
+                    <th nowrap>°ìÖ¤ÈÕÆÚ</th>
+                    <th nowrap>²Ù×÷</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,14 +46,14 @@
 
                         <td nowrap>${code.cname}</td>
                         <td ${code.type} nowrap>
-                         <c:if test="${code.type ==1}" >æˆ¿ä¸œ</c:if>
-                         <c:if test="${code.type ==2}" >ç§Ÿå®¢</c:if>
-                        </td> <!--  æˆ¿ä¸œ /ç§Ÿå®¢ -->
+                         <c:if test="${code.type ==1}" >·¿¶«</c:if>
+                         <c:if test="${code.type ==2}" >×â¿Í</c:if>
+                        </td> <!--  ·¿¶« /×â¿Í -->
                         <td nowrap>${code.createtime}</td>
 
                         <td nowrap>
-                            <button id="del" onclick="del(this)" ds =${code.id} >åˆ é™¤</button>
-                            <a href="/pass/update/${code.id}">ä¿®æ”¹</a>
+                            <button id="del" onclick="del(this)" ds =${code.id} >É¾³ý</button>
+                            <a href="/pass/update/${code.id}">ÐÞ¸Ä</a>
                         </td>
                     </tr>
 
@@ -67,7 +68,7 @@
     </form>
 
     <div style="float: left;width: 1000px">
-        <a href="${pageContext.request.contextPath}/pass/update/0">æ·»åŠ </a>
+        <a href="${pageContext.request.contextPath}/pass/update/0">Ìí¼Ó</a>
     </div>
 
 

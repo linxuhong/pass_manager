@@ -19,7 +19,7 @@
 <body>
 <div align="center">
 
-
+         废物信息维护
     <form action="${pageContext.request.contextPath}/h/${code.cid ne null?"doUpdate":"insert"}" method="post">
         <input type="hidden" name="cid" id="cid" value="${code.cid}">
 
@@ -35,7 +35,7 @@
         <br>
         业主身份证号：
         <input type="text" name="clandlord" id="clandlor" value="${code.clandlord}">
-
+        <br>
         <input type="submit" value="${code.cid eq null?"添加":"修改"}">
     </form>
 </div>

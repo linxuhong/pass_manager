@@ -12,5 +12,7 @@
 
   <jsp:include page="head.jsp"></jsp:include>
 
+  <br>
+   <h3> &nbsp;   &nbsp;    &nbsp;    &nbsp;     欢迎 </h3>
 </body>
 </html>

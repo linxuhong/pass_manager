@@ -23,5 +23,5 @@ public interface PassService {
 
     List<Pass> selectAllCode();
 
-    List<Map> selectPassBykey();
+    List<Map> selectPassBykey(Map m);
 }

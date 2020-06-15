@@ -2,11 +2,14 @@ package com.shangguan.spring.controller;
 
 import com.shangguan.spring.beans.Pass;
 import com.shangguan.spring.service.PassService;
+import com.sun.org.glassfish.gmbal.ParameterNames;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,8 +27,20 @@ public class PassController {
     PassService passService;
 
     @GetMapping("/list")
-    public String list(Model model) {
-        List<Map> list = passService.selectPassBykey();
+    public String list(HttpServletRequest request, Model model, @RequestParam(value = "pname", required = false) String pname,
+                       @RequestParam(value = "pno", required = false) String pno
+    ) {
+        Map m = new HashMap();
+
+        System.out.println(request.getParameter("pname"));
+        if (StringUtils.hasLength(pname)) {
+            m.put("pname", pname.trim());
+        }
+
+        if (StringUtils.hasLength(pno))
+            m.put("pno", pno.trim());
+
+        List<Map> list = passService.selectPassBykey(m);
         model.addAttribute("list", list);
         return "passinfo_show";
     }

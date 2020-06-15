@@ -19,7 +19,7 @@
 <body>
 <div align="center">
 
-
+     人员信息维护
     <form action="${pageContext.request.contextPath}/pp/${code.pid ne null?"doUpdate":"insert"}" method="post">
         <input type="hidden" name="pid" id="pid" value="${code.pid}">
 

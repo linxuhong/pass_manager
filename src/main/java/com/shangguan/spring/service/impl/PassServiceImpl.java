@@ -52,8 +52,8 @@ public class PassServiceImpl implements PassService {
     }
 
 
-    public List<Map> selectPassBykey() {
-        return passMapper.selectPassBykey();
+    public List<Map> selectPassBykey(Map m) {
+        return passMapper.selectPassBykey(m) ;
     }
 
 }

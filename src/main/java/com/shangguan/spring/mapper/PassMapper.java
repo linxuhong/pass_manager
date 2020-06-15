@@ -23,5 +23,5 @@ public interface PassMapper {
     int updateByPrimaryKey(Pass record);
 
     List<Pass> selectAllCode();
-    List<Map> selectPassBykey();
+    List<Map> selectPassBykey(Map m);
 }
